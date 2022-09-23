@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+	<h1>Upload image here for prediction.
+		<form action = "predict" method = "POST" enctype = "multipart/form-data">
+			 <input type = "file" name = "file" />
+			 <input type = "submit" value="SUBMIT &amp; PREDICT"/>
+		</form>
+	</h1>
+	
+{% endblock %}
