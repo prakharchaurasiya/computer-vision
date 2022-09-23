@@ -1,3 +1,4 @@
+import zipfile
 import pandas as pd
 import numpy as np
 import tensorflow as tf
@@ -5,8 +6,11 @@ from tensorflow import keras
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten, Conv2D, MaxPooling2D
 
-train = pd.read_csv('mnist_train_small.csv')
-test = pd.read_csv('mnist_test.csv')
+with zipfile.ZipFile('data.zip', 'r') as file:
+    file.extractall('data/')
+
+train = pd.read_csv('data/mnist_train_small.csv')
+test = pd.read_csv('data/mnist_test.csv')
 
 # split X, y
 
