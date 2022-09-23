@@ -29,14 +29,18 @@ parent = os.path.dirname(path)
 os.chdir(parent)
 current = os.getcwd()
 sample = os.path.join(current, 'sample-images')
-os.mkdir(sample)
+try:
+    os.mkdir(sample)
+except:
+    pass
 
 i = 0
 for im in X_test[:31]:
-  plt.figure(figsize=(2,2))
-  plt.imshow(im, cmap='gray')
-  plt.axis('off')
-  plt.savefig(sample + '/' + str(i) + '.png', bbox_inches='tight', pad_inches=-0.1)
-  i += 1
+    plt.figure(figsize=(2,2))
+    plt.imshow(im, cmap='gray')
+    plt.axis('off')
+    plt.savefig(sample + '/' + str(i) + '.png', bbox_inches='tight', pad_inches=-0.1)
+    i += 1
+    plt.close()
   
 print("Done!")
