@@ -1,1 +1,1 @@
-Mini web application for prediction of number in image.
+Mini web application for prediction of hand-written numbers.
