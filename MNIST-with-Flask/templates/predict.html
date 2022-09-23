@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+	<p>
+		{{ prediction }}
+	</p>
+	
+	<button onclick="home()">TRY ANOTHER</button>
+	
+	<script>
+		function home(){
+			window.location = '/';
+		}
+	</script>
+
+{% endblock %}
