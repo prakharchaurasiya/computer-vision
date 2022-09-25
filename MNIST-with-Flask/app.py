@@ -13,9 +13,11 @@ def index():
 @app.route("/predict", methods=["POST"])
 def predict():
     file = request.files["file"].read()
-    image = np.asarray(bytearray(file), dtype="uint8")
-    image = cv2.imdecode(image, cv2.IMREAD_GRAYSCALE)
-    image = cv2.resize(image,(28,28))
-    prediction = np.argmax(model.predict(image.reshape(1,28,28)), axis=1).item()
-    result = f'The number in image is {prediction}.'
-    return render_template("predict.html", prediction=result)
+    if file:
+        image = np.asarray(bytearray(file), dtype="uint8")
+        image = cv2.imdecode(image, cv2.IMREAD_GRAYSCALE)
+        image = cv2.resize(image,(28,28))
+        prediction = np.argmax(model.predict(image.reshape(1,28,28)), axis=1).item()
+        result = f'The number in image is {prediction}.'
+        return render_template("predict.html", prediction=result)
+    return render_template("error.html")
