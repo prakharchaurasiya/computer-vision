@@ -10,8 +10,10 @@ app = Flask(__name__)
 def index():
     return render_template("upload.html")
 
-@app.route("/predict", methods=["POST"])
+@app.route("/predict", methods=["POST", "GET"])
 def predict():
+    if request.method == "GET":
+        return render_template("error2.html")
     file = request.files["file"].read()
     if file:
         image = np.asarray(bytearray(file), dtype="uint8")
