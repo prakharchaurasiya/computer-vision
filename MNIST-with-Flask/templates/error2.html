@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+	<p>
+		DON'T COME HERE DIRECTLY!
+	</p>
+	
+	<button onclick="home()">NOW GO BACK & UPLOAD THE IMAGE</button>
+	
+	<script>
+		function home(){
+			window.location = '/';
+		}
+	</script>
+
+{% endblock %}
